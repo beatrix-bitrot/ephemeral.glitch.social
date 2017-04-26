@@ -43,6 +43,8 @@ import { HotKeys } from 'react-hotkeys';
 // Without this it ends up in ~8 very commonly used bundles.
 import '../../components/status';
 
+import Moon from '../../components/moon';
+
 const mapStateToProps = state => ({
   me: state.getIn(['meta', 'me']),
   isComposing: state.getIn(['compose', 'is_composing']),
@@ -378,6 +380,7 @@ export default class UI extends React.Component {
           <LoadingBarContainer className='loading-bar' />
           <ModalContainer />
           <UploadArea active={draggingOver} onClose={this.closeUploadModal} />
+          <Moon />
         </div>
       </HotKeys>
     );
