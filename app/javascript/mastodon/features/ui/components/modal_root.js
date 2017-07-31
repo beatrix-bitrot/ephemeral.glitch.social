@@ -51,16 +51,19 @@ export default class ModalRoot extends React.PureComponent {
   componentWillReceiveProps (nextProps) {
     if (!!nextProps.type && !this.props.type) {
       this.activeElement = document.activeElement;
-
+//<<<<<<< 00ebbf233bae6b76781992b6587258024284c959
       this.getSiblings().forEach(sibling => sibling.setAttribute('inert', true));
     } else if (!nextProps.type) {
       this.setState({ revealed: false });
+//=======
+//      this.getSiblings().forEach(sibling => sibling.setAttribute && sibling.setAttribute('inert', true));
+//>>>>>>> fix modal pls
     }
   }
 
   componentDidUpdate (prevProps) {
     if (!this.props.type && !!prevProps.type) {
-      this.getSiblings().forEach(sibling => sibling.removeAttribute('inert'));
+      this.getSiblings().forEach(sibling => sibling.removeAttribute && sibling.removeAttribute('inert'));
       this.activeElement.focus();
       this.activeElement = null;
     }
